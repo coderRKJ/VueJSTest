@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- Since there is already a rich ecosystem of ajax libraries    -->
+    <!-- and collections of general-purpose utility methods, Vue core -->
+    <!-- is able to remain small by not reinventing them. This also   -->
+    <!-- gives you the freedom to use what you're familiar with.      -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+
+        /* Enter and leave animations can use different */
+        /* durations and timing functions.              */
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+
+        .slide-fade-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+
+        .slide-fade-enter,
+        .slide-fade-leave-to {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-bind:title="message">
+        <p>{{ now() }}</p>
+        <transition name="fade">
+            <p>{{ output }}</p>
+        </transition>
+
+        Your name: <input type="text" v-model="visitor" />
+        <!-- <transition name="fade"> -->
+        <p v-if="count==0">No replies.</p>
+        <!-- </transition> -->
+        <!-- <transition name="fade"> -->
+        <p v-else-if="count>10">Over 10 Replies!</p>
+        <!-- </transition> -->
+        <!-- <transition name="fade"> -->
+        <p v-else>Replies: {{ count }}.</p>
+        <!-- </transition> -->
+        <button v-on:click="sayHi" class="btn" v-bind:class="btnClass">Say Hi</button><br>
+        <button @click="isSuccess = !isSuccess" class="btn" v-bind:class="btnClass">Change Theme</button>
+        <ul>
+            <!-- <transition name="fade"> -->
+            <li v-for="name in visitors">{{ name }}</li>
+            <!-- </transition>             -->
+        </ul>
+    </div>
+    <div id="demo">
+        <button v-on:click="show = !show">
+            Toggle
+        </button>
+        <transition name="fade">
+            <p v-if="show">hello</p>
+        </transition>
+    </div>
+    <div id="example-1">
+        <button @click="show = !show">
+            Toggle render
+        </button>
+        <transition name="slide-fade">
+            <p v-if="show">hello</p>
+        </transition>
+    </div>
+    <div id="app-7">
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+        </ol>
+    </div>
+    <div id="watch-example">
+        <p>
+            Ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+</body>
+<script type="text/javascript" src="application.js"></script>
+
+</html>
