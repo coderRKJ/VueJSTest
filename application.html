@@ -103,6 +103,13 @@
         </p>
         <p>{{ answer }}</p>
     </div>
+    <div id="method-handlers">
+        <!-- `greet` is the name of a method defined below -->
+        <button class="btn-success" v-on:click="greet">Greet</button>
+        <button class="btn-danger" v-on:click="warn('Form cannot be submitted yet.', $event)">
+            Submit
+        </button>
+    </div>
 </body>
 <script type="text/javascript" src="application.js"></script>
 

@@ -97,3 +97,29 @@ var watchExampleVM = new Vue({
         }
     }
 })
+
+var example2 = new Vue({
+    el: '#method-handlers',
+    data: {
+      name: 'Vue.js'
+    },
+    // define methods under the `methods` object
+    methods: {
+      greet: function (event) {
+        // `this` inside methods points to the Vue instance
+        alert('Hello ' + this.name + '!')
+        // `event` is the native DOM event
+        if (event) {
+            console.log(event);
+          alert(event.target.tagName)
+        }
+      },
+      warn: function (message, event) {
+        // now we have access to the native event
+        if (event) {
+          event.preventDefault()
+        }
+        alert(message)
+      }
+    }
+  })
