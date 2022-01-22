@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +17,27 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
+    <div id="app">
+        <!-- <div v-on:click = "something"> -->
+
+        <label>Enter Password: </label>
+        <input type="text" v-model="pass" />
+        <br>
+        <label v-bind:style="{ backgroundColor : track.uppercase }">Password has atleast 1 uppercase character</label>
+        <br>
+        <label v-bind:style="{ backgroundColor : track.lowercase }">Password has atleast 1 lowercase character</label>
+        <br>
+        <label v-bind:style="{ backgroundColor : track.number }">Password has atleast 1 number character</label>
+        <br>
+        <label v-bind:style="{ backgroundColor : track.special }">Password has atleast 1 special character</label>
+        <br> <br>
+        <label>Password meter: </label>
+        <label> {{strength}} </label>
+        <!-- </div> -->
+    </div>
 </body>
 <script src="application.js"></script>
+
 </html>
