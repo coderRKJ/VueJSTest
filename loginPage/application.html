@@ -19,23 +19,22 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="container p-20">
         <!-- <div v-on:click = "something"> -->
 
         <label>Enter Password: </label>
         <input type="text" v-model="pass" />
         <br>
-        <label v-bind:style="{ backgroundColor : track.uppercase }">Password has atleast 1 uppercase character</label>
+        <label v-bind:class="uppercase">Password has atleast 1 uppercase character</label>
         <br>
-        <label v-bind:style="{ backgroundColor : track.lowercase }">Password has atleast 1 lowercase character</label>
+        <label v-bind:class="lowercase">Password has atleast 1 lowercase character</label>
         <br>
-        <label v-bind:style="{ backgroundColor : track.number }">Password has atleast 1 number character</label>
+        <label v-bind:class="number">Password has atleast 1 number character</label>
         <br>
-        <label v-bind:style="{ backgroundColor : track.special }">Password has atleast 1 special character</label>
+        <label v-bind:class="special">Password has atleast 1 special character</label>
         <br> <br>
         <label>Password meter: </label>
-        <label> {{strength}} </label>
-        <!-- </div> -->
+        <label v-html="strength"></label>
     </div>
 </body>
 <script src="application.js"></script>
